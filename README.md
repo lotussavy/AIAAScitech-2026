@@ -6,7 +6,6 @@ Based on **Urban Air Mobility Flight Demand Modeling for Airports in New York Ci
 
 **Reproduction starts from the included hourly summaries.** No downloads or API keys are needed to generate results. The raw 2023 TLC trips and the original complete preprocessing pipeline are not included. Figures reproduce the analysis families in paper Figures 4–7; exact agreement with every published value or image is not claimed.
 
-**Known EWR discrepancy:** the supplied EWR result CSV uses LGA distances for UAM costs. The default run fixes this by selecting EWR distances. `--mode archived` uses the supplied historical costs for comparison. See [the audit and methodological differences](docs/REPRODUCIBILITY.md) before interpreting either run as a replication of the paper.
 
 ## Quick start
 
