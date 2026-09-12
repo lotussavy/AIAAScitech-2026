@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying research when using this analysis."
+title: "AIAAScitech-2026: NYC Airport Urban Air Mobility Demand Modeling"
+version: 1.0.0
+type: software
+license: BSD-3-Clause
+repository-code: "https://github.com/lotussavy/AIAAScitech-2026"
+authors:
+  - family-names: Acharya
+    given-names: Kamal
+preferred-citation:
+  type: conference-paper
+  title: "Urban Air Mobility Flight Demand Modeling for Airports in New York City"
+  year: 2026
+  authors:
+    - family-names: Acharya
+      given-names: Kamal
+    - family-names: Song
+      given-names: Houbing
+    - family-names: Vasiloff
+      given-names: Katherine
+    - family-names: Wang
+      given-names: Zhenbo
+    - family-names: Sun
+      given-names: Liang

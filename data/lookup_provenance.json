@@ -1,0 +1,6 @@
+{
+  "source_url": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv",
+  "retrieved_date": "2026-09-12",
+  "source_sha256": "1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed",
+  "transformation": "Select LocationID 1..263; retain LocationID and Borough; rename Borough to borough."
+}

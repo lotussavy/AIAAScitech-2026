@@ -1,0 +1,22 @@
+name: Reproduce analysis
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-notebooks.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python -m uam_demand --verify-inputs
+      - run: python -m uam_demand --mode archived --verify-inputs
+      - run: python scripts/execute_notebooks.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reproduced-results
+          path: outputs/

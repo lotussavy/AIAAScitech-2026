@@ -1,0 +1,10 @@
+{
+  "value_of_time_usd_per_hour": 41.9,
+  "reliability_ratio": 0.8,
+  "logit_lambda_per_usd": 0.1,
+  "phases": {
+    "Early": {"cost_per_mile": 15.0, "speed_mph": 125.0},
+    "Mid": {"cost_per_mile": 10.0, "speed_mph": 150.0},
+    "Mature": {"cost_per_mile": 5.0, "speed_mph": 175.0}
+  }
+}

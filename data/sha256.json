@@ -1,0 +1,11 @@
+{
+  "data/hourly/EWR-hourly.csv": "a1a968386950c28dbdee7fef942b4e63b835d72f175a75a12a15016e089cef24",
+  "data/hourly/JFK-hourly.csv": "aed37c3f03a2f4bb06d58aa4f5e591029adc7aa82443b2926efa86b0b6dfb4e5",
+  "data/hourly/LGA-hourly.csv": "4de75cfe05b580e1a777cfa3ad4bbe33c94f4b12ca16c0907f1a81086e7fdb29",
+  "data/reference/Final_EWR_UAM_GCT.csv": "bc9f45e2462ce524dddf02b9d19f907a75d090a9b203002de6bcfe5308fbbde4",
+  "data/reference/Final_JFK_UAM_GCT.csv": "d8e603d9ae3a5270fdcdbac567b79676fb52d7ff3ed4b1f7cdf9ed4899ed1a3f",
+  "data/reference/Final_LGA_UAM_GCT.csv": "b956265dd8d171b69656360eec5719abd01cb5659785349fa6af308ee826c72f",
+  "data/reference/taxi_zones_original.csv": "7bc4a56b78bc31ed1307710542d20d3e3c4daf4a65f15b99e9fa328a31c5fe91",
+  "data/taxi_zone_airport_distances.csv": "e18d34ff0c320dd2d7306b07693e3dcaf53c14f5a28995e840afd51e74bc5bb8",
+  "data/taxi_zones.csv": "37bc8b62bf240b5c1b854d3b9791c0e62294d4f54cac3e494303982a8d8b67bf"
+}
