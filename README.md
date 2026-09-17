@@ -16,12 +16,14 @@ git clone https://github.com/lotussavy/AIAAScitech-2026.git
 cd AIAAScitech-2026
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -e .
 python -m unittest discover -s tests -v
 python -m uam_demand --verify-inputs
 ```
 
 On Windows, create the environment with `py -3.12 -m venv .venv` and activate it with `.venv\Scripts\Activate.ps1` in PowerShell. The remaining `python` commands are the same.
+
+`pip install -e .` installs this repository as the `uam-demand` package (see `pyproject.toml`), which also provides a `uam-demand` console command equivalent to `python -m uam_demand`.
 
 Results appear in `outputs/corrected/`. The run writes final GCT CSVs, plot-source tables, PNG/PDF figures, and a `run_manifest.json` containing input hashes, parameters, package versions, and an audit against the supplied reference CSVs.
 
@@ -40,6 +42,25 @@ python -m uam_demand --config my_config.json --output outputs/experiment
 ```
 
 Copy `config.json` to `my_config.json` before editing parameters. Use corrected mode for cost experiments. Repeating a run replaces files in its output directory. Use a new `--output` directory for each experiment.
+
+## Using your own data
+
+You do not need a full clone to use the package elsewhere. `pip install git+https://github.com/lotussavy/AIAAScitech-2026.git` installs just the `uam_demand` Python package and the `uam-demand` command — it does **not** include `data/`, `config.json`, notebooks, or tests, so you must supply your own config file and input CSVs (or point `--root` at a full clone to reuse its bundled `config.json`/lookup files).
+
+The CLI and the underlying `uam_demand` package also work with input files that are not part of this repository, for one airport at a time:
+
+```bash
+uam-demand --airports EWR \
+  --hourly /path/to/my_ewr_hourly.csv \
+  --distances /path/to/my_distances.csv \
+  --zones /path/to/my_zones.csv \
+  --config my_config.json \
+  --output /path/to/my_results
+```
+
+`--hourly` must match the [hourly summary schema](docs/DATA.md#hourly-summary-schema); `--distances` and `--zones` must match the [spatial input schema](docs/DATA.md#spatial-inputs). Airport codes and zone IDs (EWR = 1, LGA = 138, JFK = 132) are unchanged from the paper's NYC TLC zone system. `--distances` and `--zones` default to the bundled files under `data/` if omitted, so you only need to supply the ones you are actually replacing.
+
+A `--reference` CSV is optional. Without one, `run_manifest.json`'s audit fields are `null` and no comparison is attempted. With one, the run audits `--hourly` against it exactly as the bundled reproduction does. The package can also be called directly, bypassing the CLI: `uam_demand.compute_costs(hourly_df, distances_df, "EWR", config)` and `uam_demand.analysis_tables(costs_df, zones_df, "EWR", config)` return pandas DataFrames.
 
 ## Outputs and paper mapping
 
@@ -93,6 +114,7 @@ Rows are OD/hour groups, weighted by `num_trips`. Switching probabilities are ca
 ## Repository contents
 
 ```text
+pyproject.toml                Package metadata; enables `pip install -e .` and the `uam-demand` command
 config.json                  Model parameters
 data/hourly/                 Three airport hourly summary inputs
 data/taxi_zones.csv          Zone-to-borough lookup

@@ -2,6 +2,8 @@
 
 The bundled analysis inputs were copied from the author's local project on 2026-09-12, except the corrected borough lookup fetched from TLC that day. They are sufficient to run this repository offline after Python dependencies are installed. The input hashes are recorded in `data/sha256.json`. Use `python -m uam_demand --verify-inputs` to validate them.
 
+The schemas below also govern data you supply yourself: see [Using your own data](../README.md#using-your-own-data) for the `--hourly`/`--distances`/`--zones`/`--config` CLI flags. CSV and JSON inputs may be UTF-8 or UTF-8 with a byte-order mark (the default when saving from Notepad or PowerShell's `Set-Content -Encoding utf8` on Windows); both are read correctly.
+
 ## Inputs
 
 | Repository path | Source project path | Rows |
